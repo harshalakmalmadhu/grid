@@ -1,0 +1,20 @@
+
+
+<div>
+  <table border="1">
+    <thead>
+      <td>instID</td>
+      <td>procID</td>
+      <td>threadNum</td>
+      <td>status</td>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of sample" >
+        <td>{{item.instID}}</td>
+        <td>{{item.procID}}</td>
+        <td>{{item.threadNum}}</td>
+        <td>{{item.status}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

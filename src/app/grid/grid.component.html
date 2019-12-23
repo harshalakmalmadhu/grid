@@ -1,0 +1,65 @@
+<!-- <app-search></app-search> -->
+
+<div class="container">
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">Search</span>
+    </div>
+    <input type="text" class="form-control" [(ngModel)]="searchItem" (input)='uniSearch()' aria-label="Username"
+      aria-describedby="basic-addon1">
+  </div>
+</div>
+<div class="container-fluid">
+
+  <div class="table">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">InstID<input type="text" class="form-control input-sm" [(ngModel)]="InstID"
+              (input)='searchById()'></th>
+          <th scope="col">ProcID<input type="text" class="form-control input-sm" [(ngModel)]="ProcID"
+              (input)='searchByProcID()'></th>
+          <th scope="col">ThreadNum<input type="text" class="form-control input-sm" [(ngModel)]="ThreadNum"
+              (input)='searchByThreadNum()'></th>
+          <th scope="col">Status<input type="text" class="form-control input-sm" [(ngModel)]="Status"
+              (input)='searchByStatus()'></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tdata of tabledata | slice:startIndex:endIndex">
+          <td>{{tdata.instID}}</td>
+          <td>{{tdata.procID}}</td>
+          <td>{{tdata.threadNum}}</td>
+          <td>{{tdata.status}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        <li class="page-item">
+          <a class="page-link" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+            <span class="sr-only">Previous</span>
+          </a>
+        </li>
+        <li class="page-item" *ngFor="let item of pages"><a class="page-link" (click)="updateIndex(item)">{{item+1}}</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+            <span class="sr-only">Next</span>
+          </a>
+        </li>
+      </ul>
+    </nav> -->
+  </div>
+</div>
+
+<app-search></app-search>
+
+<app-pagination 
+[tabledata]="tabledata" 
+(updatedPageNumbers)="onUpdatedPageNumbers($event)"
+>
+</app-pagination>
